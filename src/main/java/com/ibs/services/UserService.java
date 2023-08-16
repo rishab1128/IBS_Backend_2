@@ -2,12 +2,13 @@ package com.ibs.services;
 
 import java.util.List;
 
+import com.ibs.payloads.User1Dto;
 import com.ibs.payloads.UserDto;
 
 public interface UserService {
-	UserDto createUser(UserDto user);
-	UserDto updateUser(UserDto userDto , Integer userId);
-	UserDto getUserById(Integer userId);
-	List<UserDto> getAllUsers();
+	User1Dto createUser(User1Dto user);
+	User1Dto updateUser(User1Dto userDto , Integer userId);
+	User1Dto getUserById(Integer userId);
+	List<User1Dto> getAllUsers();
 	void deleteUser(Integer userId);
 }

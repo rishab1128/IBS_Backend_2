@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ibs.entities.User;
+import com.ibs.entities.User1;
 import com.ibs.exceptions.ResourceNotFoundException;
-import com.ibs.payloads.UserDto;
+import com.ibs.payloads.User1Dto;
 import com.ibs.repositories.UserRepo;
 import com.ibs.services.UserService;
 
@@ -24,57 +25,62 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public UserDto createUser(UserDto userDto) {
+	public User1Dto createUser(User1Dto userDto) {
 		// TODO Auto-generated method stub
-		User user = this.dtoToUser(userDto);
-		User savedUser = this.userRepo.save(user);
+		User1 user = this.dtoToUser(userDto);
+		User1 savedUser = this.userRepo.save(user);
 		return this.userToDto(savedUser);
 	}
 
 	@Override
-	public UserDto updateUser(UserDto userDto, Integer userId) {
+	public User1Dto updateUser(User1Dto userDto, Integer userId) {
 		// TODO Auto-generated method stub
-		User user = this.userRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("User" , "id" , userId));
-		user.setName(userDto.getName());
+		User1 user = this.userRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("User" , "id" , userId));
+		user.setFirstName(userDto.getFirstName());
+		user.setLastName(userDto.getLastName());
+		user.setMobile(userDto.getMobile());
 		user.setEmail(userDto.getEmail());
-		user.setPassword(userDto.getPassword());
-		user.setAbout(userDto.getAbout());
-		User updatedUser = this.userRepo.save(user);
-		UserDto userDto1 = this.userToDto(updatedUser);
+		user.setAadharNo(userDto.getAadharNo());
+		user.setPanNo(userDto.getPanNo());
+		user.setDOB(null);
+		
+		
+		User1 updatedUser = this.userRepo.save(user);
+		User1Dto userDto1 = this.userToDto(updatedUser);
 		return userDto1;
 	}
 
 	@Override
-	public UserDto getUserById(Integer userId) {
+	public User1Dto getUserById(Integer userId) {
 		// TODO Auto-generated method stub
-		User user = this.userRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("User", "Id", userId));
+		User1 user = this.userRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("User", "Id", userId));
 		return this.userToDto(user);
 	}
 
 	@Override
-	public List<UserDto> getAllUsers() {
+	public List<User1Dto> getAllUsers() {
 		// TODO Auto-generated method stub
-		List<User> users = this.userRepo.findAll();
-		List<UserDto> userDtos=users.stream().map(user->this.userToDto(user)).collect(Collectors.toList());
+		List<User1> users = this.userRepo.findAll();
+		List<User1Dto> userDtos=users.stream().map(user->this.userToDto(user)).collect(Collectors.toList());
 		return userDtos;
 	}
 
 	@Override
 	public void deleteUser(Integer userId) {
 		// TODO Auto-generated method stub
-		User user =  this.userRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("User", "Id", userId));
+		User1 user =  this.userRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("User", "Id", userId));
 		this.userRepo.delete(user);
 	}
 	
-	private User dtoToUser(UserDto userDto)
+	private User1 dtoToUser(User1Dto userDto)
 	{
-		User user = this.modelMapper.map(userDto, User.class);
+		User1 user = this.modelMapper.map(userDto, User1.class);
 		return user;
 	}
 	
-	public UserDto userToDto(User user)
+	public User1Dto userToDto(User1 user)
 	{
-		UserDto userDto = this.modelMapper.map(user, UserDto.class);
+		User1Dto userDto = this.modelMapper.map(user, User1Dto.class);
 		return userDto;
     }
 

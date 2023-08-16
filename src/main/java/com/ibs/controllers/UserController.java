@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibs.payloads.ApiResponse;
-import com.ibs.payloads.UserDto;
+import com.ibs.payloads.User1Dto;
 import com.ibs.services.impl.*;
 
 import jakarta.validation.Valid;
@@ -34,16 +34,16 @@ public class UserController {
 	private UserServiceImpl userService;
 	
 	@PostMapping("/")
-	public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto)
+	public ResponseEntity<User1Dto> createUser(@Valid @RequestBody User1Dto userDto)
 	{
-		UserDto createUserDto = this.userService.createUser(userDto);
+		User1Dto createUserDto = this.userService.createUser(userDto);
 		return new ResponseEntity<>(createUserDto, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{userId}")
-	public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto , @PathVariable("userId") Integer uid)
+	public ResponseEntity<User1Dto> updateUser(@Valid @RequestBody User1Dto userDto , @PathVariable("userId") Integer uid)
 	{
-		UserDto updatedUser = this.userService.updateUser(userDto, uid);
+		User1Dto updatedUser = this.userService.updateUser(userDto, uid);
 		return ResponseEntity.ok(updatedUser);
 	}
 	
@@ -56,13 +56,13 @@ public class UserController {
 //	}
 	
 	@GetMapping("/")
-	public ResponseEntity<List<UserDto>> getAllUsers()
+	public ResponseEntity<List<User1Dto>> getAllUsers()
 	{
 		return ResponseEntity.ok(this.userService.getAllUsers());
 	}
 	
 	@GetMapping("/{userId}")
-	public ResponseEntity<UserDto> getSingleUser(@PathVariable("userId") Integer uid)
+	public ResponseEntity<User1Dto> getSingleUser(@PathVariable("userId") Integer uid)
 	{
 		return ResponseEntity.ok(this.userService.getUserById(uid));
 	}
