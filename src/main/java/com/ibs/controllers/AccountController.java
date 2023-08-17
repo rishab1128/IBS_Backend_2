@@ -27,13 +27,13 @@ import jakarta.validation.Valid;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("")
+@RequestMapping("/api")
 
 public class AccountController{
 	@Autowired
 	private AccountServiceImpl accountService;
 	
-	@PostMapping("/")
+	@PostMapping("/register")
 	public ResponseEntity<AccountDto> createAccount(@Valid @RequestBody AccountDto accountDto)
 	{
 		AccountDto createAccountDto = this.accountService.createAccount(accountDto);

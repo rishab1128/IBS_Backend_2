@@ -27,13 +27,13 @@ import jakarta.validation.Valid;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api")
 public class UserController {
 	
 	@Autowired
 	private UserServiceImpl userService;
 	
-	@PostMapping("/")
+	@PostMapping("/openaccount")
 	public ResponseEntity<User1Dto> createUser(@Valid @RequestBody User1Dto userDto)
 	{
 		User1Dto createUserDto = this.userService.createUser(userDto);
@@ -55,7 +55,7 @@ public class UserController {
 //		return new ResponseEntity<ApiResponse>(new ApiResponse("User deleted Successfully" , true),HttpStatus.OK);
 //	}
 	
-	@GetMapping("/")
+	@GetMapping("/userlist")
 	public ResponseEntity<List<User1Dto>> getAllUsers()
 	{
 		return ResponseEntity.ok(this.userService.getAllUsers());
