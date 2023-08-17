@@ -18,6 +18,8 @@ import lombok.Setter;
 public class User1 {
 	
 	@Id
+	@SequenceGenerator(name="SEQ_GEN", sequenceName="SEQ_JUST_FOR_TEST", allocationSize=100)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_GEN")
 	private int accNo;
 	
 	
