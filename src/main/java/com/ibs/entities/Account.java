@@ -1,6 +1,6 @@
 package com.ibs.entities;
 
-import jakarta.persistence.*;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +28,5 @@ public class Account {
 	private String Loginpass;
 	private String TransPAss;
 	
-	
-	@JoinColumn(name = )
 }
+	
