@@ -3,7 +3,7 @@ package com.ibs.services;
 import java.util.List;
 
 import com.ibs.payloads.User1Dto;
-import com.ibs.payloads.UserDto;
+
 
 public interface UserService {
 	User1Dto createUser(User1Dto user);

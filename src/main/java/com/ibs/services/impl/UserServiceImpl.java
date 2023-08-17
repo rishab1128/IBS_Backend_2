@@ -7,7 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ibs.entities.User;
+
 import com.ibs.entities.User1;
 import com.ibs.exceptions.ResourceNotFoundException;
 import com.ibs.payloads.User1Dto;
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
 		user.setEmail(userDto.getEmail());
 		user.setAadharNo(userDto.getAadharNo());
 		user.setPanNo(userDto.getPanNo());
-		user.setDOB(null);
+		user.setDob(null);
 		
 		
 		User1 updatedUser = this.userRepo.save(user);

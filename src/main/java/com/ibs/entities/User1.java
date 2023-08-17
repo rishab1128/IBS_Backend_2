@@ -18,17 +18,16 @@ import lombok.Setter;
 public class User1 {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int AccNo;
+	private int accNo;
 	
-	@Column(name = "FirstName",nullable = false , length = 100)
-	private String FirstName;
-	private String LastName;
-	private String Mobile;
-	private String Email;
-	private String AadharNo;
-	private String PanNo;
-	private String DOB;
+	
+	private String firstName;
+	private String lastName;
+	private String mobile;
+	private String email;
+	private String aadharNo;
+	private String panNo;
+	private String dob;
 	
 	
 	

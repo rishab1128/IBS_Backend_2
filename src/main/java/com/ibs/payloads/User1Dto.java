@@ -13,33 +13,33 @@ import lombok.Setter;
 @Getter
 public class User1Dto {
 	
-	private int AccNo;
+	private int accNo;
 		
 	
 	@NotNull
 	
-	private String FirstName;
+	private String firstName;
 	
 	@NotNull
-	private String LastName;
+	private String lastName;
 	
 
 	
 	
 	@NotNull
 	@Size(min = 10 , message = "Mobile Number Ivalid")
-	private String Mobile;
+	private String mobile;
 	
 	@Email(message = "Email address is invalid")
-	private String Email;
+	private String email;
 	
 	@NotNull
 	@Size(min = 16 , message = "Invalid entry")
-	private String AadharNo;
+	private String aadharNo;
 	
 	@NotNull
-	private String PanNo;
+	private String panNo;
 	
 	@NotNull
-	private String DOB;
+	private String dob;
 }
