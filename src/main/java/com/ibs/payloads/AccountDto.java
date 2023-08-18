@@ -13,19 +13,19 @@ import lombok.Setter;
 public class AccountDto{
 	
 	@NotNull
-	private int AccNo;
+	private int accNo;
 	
 	@NotNull
 	@Size(min = 6 , message = "UserId must be of atleast 6 characters")
-	private String UserID;
+	private String userId;
 	
 	@NotNull
 	@Size(min = 6 , message = "Password must be of atleast 6 characters")
-	private String LoginPass;
+	private String loginPass;
 	
 	@NotNull
 	@Size(min = 6 , message = "Password must be of atleast 6 characters")
-	private String TransPass;
+	private String transPass;
 	
 	
 	
